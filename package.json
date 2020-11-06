@@ -1,7 +1,7 @@
 {
-  "name": "RSS-reader",
+  "name": "HOMM3_randomizer",
   "version": "1.0.0",
-  "description": "RSS reader by asagafonov",
+  "description": "Random town generator for Heroes of Might and Magic 3",
   "main": "dist/main.js",
   "engines": {
     "node": ">=12"
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asagafonov/RSS-reader.git"
+    "url": "git+https://github.com/asagafonov/HOMM3_randomizer.git"
   },
   "keywords": [
     "rss",
