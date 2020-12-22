@@ -15,6 +15,6 @@ export default {
     buttons: {
       ban: 'Ban',
       unban: 'Unban',
-    }
+    },
   },
 };
