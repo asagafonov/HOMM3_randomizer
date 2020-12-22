@@ -1,4 +1,3 @@
-import onChange from 'on-change';
 import i18next from 'i18next';
 import en from './locales/index.js';
 import {
@@ -31,10 +30,8 @@ const changeTownStatus = (townsList, featuredTown) => {
   if (townsList.includes(featuredTown)) {
     return townsList.filter((town) => town !== featuredTown);
   }
-  else {
-    townsList.push(featuredTown);
-    return townsList;
-  }
+  townsList.push(featuredTown);
+  return townsList;
 };
 
 export default () => {
