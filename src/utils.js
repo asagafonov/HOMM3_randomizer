@@ -8,10 +8,9 @@ const generateRandomTowns = (towns, numberOfTowns) => {
   if (towns.length < 2) {
     return;
   }
-  const length = towns.length - 1;
   const result = [];
-  while(result.length < numberOfTowns) {
-    const index = generateRandomNumberInRange(0, length);
+  while (result.length < numberOfTowns) {
+    const index = generateRandomNumberInRange(0, towns.length - 1);
     if (!result.includes(index)) {
       result.push(index);
     }
@@ -19,7 +18,10 @@ const generateRandomTowns = (towns, numberOfTowns) => {
   return result.map((ind) => towns[ind]).join(' vs. ');
 };
 
-const generateRandomTown = (towns, currTown) => {
+const generateRandomTown = (towns) => {
+  if (towns.length === 0) {
+    return;
+  }
   const randomIndex = generateRandomNumberInRange(0, towns.length - 1);
   return towns[randomIndex];
 };
