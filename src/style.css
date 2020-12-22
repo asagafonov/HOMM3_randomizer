@@ -1,0 +1,38 @@
+#content {
+  max-width: 700px;
+  margin: 0, auto;
+}
+
+#resultWrapper {
+  background-color: white;
+  width: 650px;
+  height: 200px;
+}
+
+.card {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border-width: 2px;
+  border-color: white;
+}
+
+.card .btn-secondary,
+.card .btn-danger {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.card:hover img {
+  opacity: 0.3;
+}
+
+.card:hover .btn-secondary,
+.card:hover .btn-danger {
+  opacity: 1;
+}
