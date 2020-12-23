@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HOMM3 Random Town Generator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="./style.css">
   </head>
   <body class="d-flex flex-column min-vh-100">
     <main class="flex-grow-1" style="background-image: url('../pics/bg.png');">
@@ -22,12 +21,13 @@
             <div class="container-xl">
               <div class="row justify-content-center">
                 <div id="resultWrapper" class="mt-3">
-                  <h4 id="result" class="text-center"></h4>
+                  <p class="text-secondary">...press button to start</p>
                 </div>
               </div>
               <div class="row justify-content-center mb-5">
                 <button id="two" type="button" class="btn btn-success mt-4 mr-3" name="generateTwo">Two towns</button>
-                <button id="one" type="button" class="btn btn-success mt-4 ml-3" name="generateOne">One town</button>
+                <button id="one" type="button" class="btn btn-success mt-4 ml-3 mr-3" name="generateOne">One town</button>
+                <button id="clear" type="button" class="btn btn-danger mt-4 ml-3" name="clearTowns">Clear</button>
               </div>
             </div>
             <h3 class="mb-2 mt-2 text-white">Ban towns</h3>
