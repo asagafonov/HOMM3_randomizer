@@ -15,6 +15,12 @@ export default {
     buttons: {
       ban: 'Ban',
       unban: 'Unban',
+      unbanAll: 'Unban all',
+    },
+    ui: {
+      header: 'HOMM3 random town generator',
+      subtitle1: 'Generate adversaries',
+      subtitle2: 'Ban towns',
     },
   },
 };
