@@ -1,28 +1,25 @@
-const generateRandomNumberInRange = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-};
+import _ from 'lodash';
 
 const generateRandomTowns = (towns, numberOfTowns) => {
   if (towns.length < 2) {
-    return;
+    return 'ERROR: not enough towns';
   }
-  const result = [];
+  let result = [];
   while (result.length < numberOfTowns) {
-    const index = generateRandomNumberInRange(0, towns.length - 1);
+    const index = _.random(towns.length - 1);
     if (!result.includes(index)) {
-      result.push(index);
+      result = [...result, index];
     }
   }
-  return result.map((ind) => towns[ind]).join(' vs. ');
+  const coupleOfTowns = result.map((ind) => towns[ind]);
+  return coupleOfTowns.join(' vs. ');
 };
 
 const generateRandomTown = (towns) => {
   if (towns.length === 0) {
-    return;
+    return 'ERROR: not enough towns';
   }
-  const randomIndex = generateRandomNumberInRange(0, towns.length - 1);
+  const randomIndex = _.random(towns.length - 1);
   return towns[randomIndex];
 };
 

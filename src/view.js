@@ -1,11 +1,5 @@
 import i18next from 'i18next';
 import onChange from 'on-change';
-import {
-  generateRandomTown,
-  generateRandomTowns,
-} from './utils.js';
-
-const numberOfAdversaries = 2;
 
 const fillPage = (elements) => {
   elements.cards.forEach((card) => {
@@ -42,13 +36,16 @@ const initView = (state, elements) => {
         }
       });
     }
-    if (path.match(/one/) && value === 'active') {
-      const randomTown = generateRandomTown(state.towns.unbanned);
-      resultWindow.textContent = randomTown;
+    if (value === 'active') {
+      resultWindow.innerHTML = '';
+      state.history.forEach((el) => {
+        const p = document.createElement('p');
+        p.textContent = el;
+        elements.resultWindow.append(p);
+      });
     }
-    if (path.match(/two/) && value === 'active') {
-      const randomTowns = generateRandomTowns(state.towns.unbanned, numberOfAdversaries);
-      resultWindow.textContent = randomTowns;
+    if (path.match(/history/)) {
+      resultWindow.innerHTML = '';
     }
   });
   return watchedState;
