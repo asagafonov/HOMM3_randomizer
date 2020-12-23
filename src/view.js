@@ -2,6 +2,10 @@ import i18next from 'i18next';
 import onChange from 'on-change';
 
 const fillPage = (elements) => {
+  elements.header.textContent = i18next.t('ui.header');
+  elements.subtitle1.textContent = i18next.t('ui.subtitle1');
+  elements.subtitle2.textContent = i18next.t('ui.subtitle2');
+  elements.unbanButton.textContent = i18next.t('buttons.unbanAll');
   elements.cards.forEach((card) => {
     const id = card.id.toLowerCase();
     const townName = `towns.${id}`;

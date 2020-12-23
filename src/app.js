@@ -59,6 +59,9 @@ export default () => {
   };
 
   const elements = {
+    header: document.querySelector('#header'),
+    subtitle1: document.querySelector('#subtitle__1'),
+    subtitle2: document.querySelector('#subtitle__2'),
     cards: document.querySelectorAll('.card'),
     banButtons: document.querySelectorAll('.card > a'),
     unbanButton: document.querySelector('#unbanAll'),
