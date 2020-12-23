@@ -2,13 +2,35 @@ import i18next from 'i18next';
 import onChange from 'on-change';
 import bg from './pics/bg.png';
 import castle from './pics/castle.png';
+import rampart from './pics/rampart.png';
+import tower from './pics/tower.png';
+import inferno from './pics/inferno.png';
+import necropolis from './pics/necropolis.png';
+import dungeon from './pics/dungeon.png';
+import citadel from './pics/citadel.png';
+import fortress from './pics/fortress.png';
+import conflux from './pics/conflux.png';
+import cove from './pics/cove.png';
+
+const pics = [
+  castle,
+  rampart,
+  tower,
+  inferno,
+  necropolis,
+  dungeon,
+  citadel,
+  fortress,
+  conflux,
+  cove,
+];
 
 const fillPage = (elements) => {
   elements.bg.setAttribute('style', `background-image: url('${bg}')`);
-  elements.header.textContent = i18next.t('ui.header');
-  elements.subtitle1.textContent = i18next.t('ui.subtitle1');
-  elements.subtitle2.textContent = i18next.t('ui.subtitle2');
-  elements.unbanButton.textContent = i18next.t('buttons.unbanAll');
+  elements.header.append(i18next.t('ui.header'));
+  elements.subtitle1.append(i18next.t('ui.subtitle1'));
+  elements.subtitle2.append(i18next.t('ui.subtitle2'));
+  elements.unbanButton.append(i18next.t('buttons.unbanAll'));
   elements.cards.forEach((card) => {
     const id = card.id.toLowerCase();
     const townName = `towns.${id}`;
@@ -17,7 +39,11 @@ const fillPage = (elements) => {
     const btn = card.querySelector('a');
     btn.textContent = i18next.t('buttons.ban');
     const img = card.querySelector('img');
-    img.src = castle;
+    pics.forEach((pic) => {
+      if (pic.includes(id)) {
+        img.src = pic;
+      }
+    });
   });
 };
 
