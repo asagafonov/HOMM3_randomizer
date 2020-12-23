@@ -1,7 +1,10 @@
 import i18next from 'i18next';
 import onChange from 'on-change';
+import bg from './pics/bg.png';
+import castle from './pics/castle.png';
 
 const fillPage = (elements) => {
+  elements.bg.setAttribute('style', `background-image: url('${bg}')`);
   elements.header.textContent = i18next.t('ui.header');
   elements.subtitle1.textContent = i18next.t('ui.subtitle1');
   elements.subtitle2.textContent = i18next.t('ui.subtitle2');
@@ -13,6 +16,8 @@ const fillPage = (elements) => {
     header.textContent = i18next.t(townName);
     const btn = card.querySelector('a');
     btn.textContent = i18next.t('buttons.ban');
+    const img = card.querySelector('img');
+    img.src = castle;
   });
 };
 
