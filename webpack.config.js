@@ -34,11 +34,11 @@ module.exports = {
         {
           test: /\.(png|jp(e*)g|svg)$/,
           use: [{
-              loader: 'url-loader',
-              options: {
-                  limit: 8000, // Convert images < 8kb to base64 strings
-                  name: 'pics/[hash]-[name].[ext]'
-              }
+            loader: 'url-loader',
+            options: {
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: 'pics/[hash]-[name].[ext]',
+            },
           }],
         },
       ],
