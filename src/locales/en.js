@@ -18,7 +18,7 @@ export default {
       unbanAll: 'Unban all',
     },
     ui: {
-      header: 'HOMM3 random town generator',
+      header: 'HOMM3 town generator',
       subtitle1: 'Generate adversaries',
       subtitle2: 'Ban towns',
     },

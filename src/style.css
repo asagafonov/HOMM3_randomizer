@@ -11,7 +11,7 @@ p {
 #resultWrapper {
   background-color: white;
   min-height: 110px;
-  width: 50%;
+  width: 350px;
   margin: 0, auto;
 }
 
@@ -24,7 +24,7 @@ p {
 }
 
 #townsContainer {
-  width: 60%;
+  max-width: 400px;
 }
 
 .card {
