@@ -3,11 +3,6 @@ p {
   margin-left: 20px;
 }
 
-#content {
-  width: 700px;
-  margin: 0, auto;
-}
-
 #resultWrapper {
   background-color: white;
   min-height: 110px;
