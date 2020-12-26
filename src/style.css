@@ -4,18 +4,27 @@ p {
 }
 
 #content {
-  max-width: 700px;
+  width: 700px;
   margin: 0, auto;
 }
 
 #resultWrapper {
-  height: 300px;
   background-color: white;
-  width: 400px;
+  min-height: 110px;
+  width: 50%;
+  margin: 0, auto;
 }
 
 #resultWrapper p:first-child {
   margin-top: 20px;
+}
+
+#resultWrapper p:last-child {
+  margin-bottom: 20px;
+}
+
+#townsContainer {
+  width: 60%;
 }
 
 .card {
@@ -44,4 +53,8 @@ p {
 .card:hover .btn-secondary,
 .card:hover .btn-danger {
   opacity: 1;
+}
+
+.card img {
+  width: 80px;
 }
