@@ -22,11 +22,11 @@ p {
 }
 
 #generator__container {
-  max-width: 500px;
+  max-width: 400px;
 }
 
 #towns__container {
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .card {
@@ -57,5 +57,5 @@ p {
 }
 
 .card img {
-  width: 80px;
+  width: 88px;
 }
