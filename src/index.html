@@ -12,8 +12,8 @@
           <h2 id="header"></h2>
         </div>
       </div>
-        <div class="justify-content-center">
-            <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <div id="generator__container" class="container">
               <h3 id="subtitle__1" class="mb-2 text-white text-center"></h3>
               <div id="generate__btns" class="row justify-content-center mb-3">
                 <button id="two" type="button" class="btn btn-success mt-4 mr-2" name="generateTwo">Two towns</button>
@@ -21,14 +21,14 @@
                 <button id="clear" type="button" class="btn btn-danger mt-4 ml-2" name="clearTowns">Clear</button>
               </div>
               <div class="row justify-content-center">
-                <div id="resultWrapper" class="mt-4 mb-4 mt-2">
+                <div id="result__wrapper" class="mt-4 mb-4 mt-2">
                   <p class="text-secondary">...press button to start</p>
                 </div>
               </div>
             </div>
-            <div id="townsContainer" class="container text-center">
+            <div id="towns__container" class="container text-center">
               <h3 id="subtitle__2" class="mb-3 mt-2 text-white"></h3>
-            <div class="row justify-content-center mb-4">
+              <div class="d-flex flex-row flex-wrap justify-content-center mb-4">
                 <div id="Castle" class="card mt-3 bg-light ml-1 mr-1">
                   <img class="card-img-top" alt="Castle">
                   <h6 class="text-center mt-3 mb-3">Town</h6>
@@ -80,10 +80,10 @@
                   <a href="#" class="btn btn-secondary" data-town="Cove">Ban</a>
                 </div>
               </div>
-              <div class="row justify-content-center">
+              <div class="d-flex flex-row justify-content-center">
                 <div class="col mb-5 mt-3">
                   <div class="text-center">
-                    <a href="#" id="unbanAll" class="btn btn-danger" style="width: 150px;"></a>
+                    <a href="#" id="unban__all" class="btn btn-danger" style="width: 150px;"></a>
                   </div>
                 </div>
               </div>

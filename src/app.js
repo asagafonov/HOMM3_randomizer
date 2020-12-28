@@ -65,11 +65,11 @@ export default () => {
     subtitle2: document.querySelector('#subtitle__2'),
     cards: document.querySelectorAll('.card'),
     banButtons: document.querySelectorAll('.card > a'),
-    unbanButton: document.querySelector('#unbanAll'),
+    unbanButton: document.querySelector('#unban__all'),
     clearButton: document.querySelector('#clear'),
     generateOne: document.querySelector('#one'),
     generateTwo: document.querySelector('#two'),
-    resultWindow: document.querySelector('#resultWrapper'),
+    resultWindow: document.querySelector('#result__wrapper'),
   };
 
   const watched = initView(state, elements);

@@ -1,9 +1,5 @@
 body {
-  margin: auto;
-}
-
-main {
-  min-width: 350px;
+  min-width: 320px;
 }
 
 p {
@@ -11,27 +7,26 @@ p {
   margin-left: 20px;
 }
 
-#resultWrapper {
+#result__wrapper {
   background-color: white;
   min-height: 110px;
-  min-width: 300px;
-  margin: 0, auto;
+  width: 300px;
 }
 
-#resultWrapper p:first-child {
+#result__wrapper p:first-child {
   margin-top: 20px;
 }
 
-#resultWrapper p:last-child {
+#result__wrapper p:last-child {
   margin-bottom: 20px;
 }
 
-#townsContainer {
-  max-width: 400px;
+#generator__container {
+  max-width: 500px;
 }
 
-.container {
-  min-width: 350px;
+#towns__container {
+  max-width: 500px;
 }
 
 .card {
