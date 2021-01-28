@@ -4,14 +4,6 @@ import en from './locales/index.js';
 import { initView, fillPage } from './view.js';
 import { generateRandomTown, generateRandomTowns } from './utils.js';
 
-i18next.init({
-  lng: 'en',
-  debug: true,
-  resources: {
-    en,
-  },
-});
-
 const allTowns = [
   'Castle',
   'Rampart',
@@ -46,14 +38,22 @@ const changeTownStatus = (townsList, featuredTown) => {
 };
 
 export default () => {
+  i18next.init({
+    lng: 'en',
+    debug: true,
+    resources: {
+      en,
+    },
+  });
+
   const state = {
     towns: {
       banned: [],
       unbanned: allTowns,
     },
     generator: {
-      one: 'inactive',
-      two: 'inactive',
+      oneTown: 'inactive',
+      twoTowns: 'inactive',
     },
     history: [],
   };
@@ -101,15 +101,15 @@ export default () => {
     eOne.preventDefault();
     const randomTown = generateRandomTown(state.towns.unbanned);
     watched.history = updHistory(state.history, randomTown);
-    watched.generator.one = 'active';
-    watched.generator.one = 'inactive';
+    watched.generator.oneTown = 'active';
+    watched.generator.oneTown = 'inactive';
   });
 
   elements.generateTwo.addEventListener('click', (eTwo) => {
     eTwo.preventDefault();
     const randomCouple = generateRandomTowns(state.towns.unbanned, numberOfAdversaries);
     watched.history = updHistory(state.history, randomCouple);
-    watched.generator.two = 'active';
-    watched.generator.two = 'inactive';
+    watched.generator.twoTowns = 'active';
+    watched.generator.twoTowns = 'inactive';
   });
 };
