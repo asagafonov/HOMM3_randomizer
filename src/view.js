@@ -47,42 +47,60 @@ const fillPage = (elements) => {
   });
 };
 
-const initView = (state, elements) => {
-  const watchedState = onChange(state, (path, value) => {
-    const { cards, resultWindow } = elements;
-    if (path.match(/towns/)) {
-      cards.forEach((card) => {
-        const { id } = card;
-        const btn = card.querySelector('a');
-        const txt = card.querySelector('h6');
-        if (state.towns.unbanned.includes(id)) {
-          card.classList.remove('border-danger');
-          btn.classList.remove('btn-danger');
-          btn.classList.add('btn-secondary');
-          btn.textContent = i18next.t('buttons.ban');
-          txt.classList.remove('text-danger');
-        }
-        if (state.towns.banned.includes(id)) {
-          card.classList.add('border-danger');
-          btn.classList.remove('btn-secondary');
-          btn.classList.add('btn-danger');
-          btn.textContent = i18next.t('buttons.unban');
-          txt.classList.add('text-danger');
-        }
-      });
+const printTowns = (state, elements) => {
+  const { resultWindow } = elements;
+  resultWindow.innerHTML = '';
+  state.history.forEach((el) => {
+    const p = document.createElement('p');
+    p.textContent = el;
+    elements.resultWindow.append(p);
+  });
+}
+
+const updBannedList = (state, elements) => {
+  const { cards } = elements;
+  cards.forEach((card) => {
+    const { id } = card;
+    const btn = card.querySelector('a');
+    const txt = card.querySelector('h6');
+    if (state.towns.unbanned.includes(id)) {
+      card.classList.remove('border-danger');
+      btn.classList.remove('btn-danger');
+      btn.classList.add('btn-secondary');
+      btn.textContent = i18next.t('buttons.ban');
+      txt.classList.remove('text-danger');
     }
-    if (value === 'active') {
-      resultWindow.innerHTML = '';
-      state.history.forEach((el) => {
-        const p = document.createElement('p');
-        p.textContent = el;
-        elements.resultWindow.append(p);
-      });
-    }
-    if (path.match(/history/)) {
-      resultWindow.innerHTML = '';
+    if (state.towns.banned.includes(id)) {
+      card.classList.add('border-danger');
+      btn.classList.remove('btn-secondary');
+      btn.classList.add('btn-danger');
+      btn.textContent = i18next.t('buttons.unban');
+      txt.classList.add('text-danger');
     }
   });
+}
+
+const clearHistory = (elements) => {
+  const { resultWindow } = elements;
+  resultWindow.innerHTML = '';
+}
+
+const initView = (state, elements) => {
+
+  const mapping = {
+    'generator.oneTown': () => printTowns(state, elements),
+    'generator.twoTowns': ()=> printTowns(state, elements),
+    'towns.banned': () => updBannedList(state, elements),
+    'towns.unbanned': () => updBannedList(state, elements),
+    history: () => clearHistory(elements),
+  }
+
+  const watchedState = onChange(state, (path) => {
+    if (mapping[path]) {
+      mapping[path]();
+    }
+  });
+
   return watchedState;
 };
 
