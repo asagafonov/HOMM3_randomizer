@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import onChange from 'on-change';
-import bg from './pics/bg.png';
+import backgroundpic from './pics/backgroundpic.png';
 import castle from './pics/castle.png';
 import rampart from './pics/rampart.png';
 import tower from './pics/tower.png';
@@ -26,16 +26,25 @@ const pics = [
 ];
 
 const fillPage = (elements) => {
-  elements.bg.setAttribute('style', `background-image: url('${bg}')`);
-  elements.header.append(i18next.t('ui.header'));
-  elements.subtitle1.append(i18next.t('ui.subtitle1'));
-  elements.subtitle2.append(i18next.t('ui.subtitle2'));
-  elements.unbanButton.append(i18next.t('buttons.unbanAll'));
-  elements.cards.forEach((card) => {
+  const {
+    bg,
+    header,
+    subtitle1,
+    subtitle2,
+    unbanButton,
+    cards,
+  } = elements;
+
+  bg.setAttribute('style', `background-image: url('${backgroundpic}')`);
+  header.append(i18next.t('ui.header'));
+  subtitle1.append(i18next.t('ui.subtitle1'));
+  subtitle2.append(i18next.t('ui.subtitle2'));
+  unbanButton.append(i18next.t('buttons.unbanAll'));
+  cards.forEach((card) => {
     const id = card.id.toLowerCase();
     const townName = `towns.${id}`;
-    const header = card.querySelector('h6');
-    header.textContent = i18next.t(townName);
+    const cardHeader = card.querySelector('h6');
+    cardHeader.textContent = i18next.t(townName);
     const btn = card.querySelector('a');
     btn.textContent = i18next.t('buttons.ban');
     const img = card.querySelector('img');
@@ -49,16 +58,20 @@ const fillPage = (elements) => {
 
 const printTowns = (state, elements) => {
   const { resultWindow } = elements;
+  const { history } = state;
+
   resultWindow.innerHTML = '';
-  state.history.forEach((el) => {
+
+  history.forEach((el) => {
     const p = document.createElement('p');
     p.textContent = el;
-    elements.resultWindow.append(p);
+    resultWindow.append(p);
   });
-}
+};
 
 const updBannedList = (state, elements) => {
   const { cards } = elements;
+
   cards.forEach((card) => {
     const { id } = card;
     const btn = card.querySelector('a');
@@ -78,22 +91,22 @@ const updBannedList = (state, elements) => {
       txt.classList.add('text-danger');
     }
   });
-}
+};
 
 const clearHistory = (elements) => {
   const { resultWindow } = elements;
+
   resultWindow.innerHTML = '';
-}
+};
 
 const initView = (state, elements) => {
-
   const mapping = {
     'generator.oneTown': () => printTowns(state, elements),
-    'generator.twoTowns': ()=> printTowns(state, elements),
+    'generator.twoTowns': () => printTowns(state, elements),
     'towns.banned': () => updBannedList(state, elements),
     'towns.unbanned': () => updBannedList(state, elements),
     history: () => clearHistory(elements),
-  }
+  };
 
   const watchedState = onChange(state, (path) => {
     if (mapping[path]) {
