@@ -23,7 +23,27 @@ const generateRandomTown = (towns) => {
   return towns[randomIndex];
 };
 
+const changeTownStatus = (townsList, featuredTown) => {
+  if (townsList.includes(featuredTown)) {
+    return townsList.filter((town) => town !== featuredTown);
+  }
+  const updatedList = [...townsList, featuredTown];
+  return updatedList;
+};
+
+const updHistory = (towns, newTown) => {
+  const date = new Date();
+  const time = date.toTimeString().slice(0, 8);
+  if (towns.length < 10) {
+    return [...towns, `[${time}]: ${newTown}`];
+  }
+  const editedTowns = _.drop(towns);
+  return [...editedTowns, `[${time}]: ${newTown}`];
+};
+
 export {
   generateRandomTown,
   generateRandomTowns,
+  changeTownStatus,
+  updHistory,
 };

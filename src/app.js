@@ -1,8 +1,12 @@
 import i18next from 'i18next';
-import _ from 'lodash';
 import en from './locales/index.js';
 import { initView, fillPage } from './view.js';
-import { generateRandomTown, generateRandomTowns } from './utils.js';
+import {
+  generateRandomTown,
+  generateRandomTowns,
+  changeTownStatus,
+  updHistory,
+} from './utils.js';
 
 const allTowns = [
   'Castle',
@@ -18,24 +22,6 @@ const allTowns = [
 ];
 
 const numberOfAdversaries = 2;
-
-const updHistory = (towns, newTown) => {
-  const date = new Date();
-  const time = date.toTimeString().slice(0, 8);
-  if (towns.length < 10) {
-    return [...towns, `[${time}]: ${newTown}`];
-  }
-  const editedTowns = _.drop(towns);
-  return [...editedTowns, `[${time}]: ${newTown}`];
-};
-
-const changeTownStatus = (townsList, featuredTown) => {
-  if (townsList.includes(featuredTown)) {
-    return townsList.filter((town) => town !== featuredTown);
-  }
-  const updatedList = [...townsList, featuredTown];
-  return updatedList;
-};
 
 export default () => {
   i18next.init({
