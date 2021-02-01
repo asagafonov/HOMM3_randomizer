@@ -56,12 +56,8 @@ const fillPage = (elements) => {
   });
 };
 
-const printTowns = (state, elements) => {
-  const { resultWindow } = elements;
-  const { history } = state;
-
-  resultWindow.innerHTML = '';
-
+const printTowns = ({ history }, { resultWindow }) => {
+  resultWindow.innerHTML = ''; // eslint-disable-line no-param-reassign
   history.forEach((el) => {
     const p = document.createElement('p');
     p.textContent = el;
@@ -69,9 +65,7 @@ const printTowns = (state, elements) => {
   });
 };
 
-const updBannedList = (state, elements) => {
-  const { cards } = elements;
-
+const updBannedList = (state, { cards }) => {
   cards.forEach((card) => {
     const { id } = card;
     const btn = card.querySelector('a');
@@ -93,10 +87,8 @@ const updBannedList = (state, elements) => {
   });
 };
 
-const clearHistory = (elements) => {
-  const { resultWindow } = elements;
-
-  resultWindow.innerHTML = '';
+const clearHistory = ({ resultWindow }) => {
+  resultWindow.innerHTML = ''; // eslint-disable-line no-param-reassign
 };
 
 const initView = (state, elements) => {
