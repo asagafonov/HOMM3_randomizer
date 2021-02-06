@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import random from 'lodash/random';
+import drop from 'lodash/drop';
 
 const generateRandomTowns = (towns, numberOfTowns) => {
   if (towns.length < 2) {
@@ -6,7 +7,7 @@ const generateRandomTowns = (towns, numberOfTowns) => {
   }
   let result = [];
   while (result.length < numberOfTowns) {
-    const index = _.random(towns.length - 1);
+    const index = random(towns.length - 1);
     if (!result.includes(index)) {
       result = [...result, index];
     }
@@ -19,7 +20,7 @@ const generateRandomTown = (towns) => {
   if (towns.length === 0) {
     return 'ERROR: not enough towns';
   }
-  const randomIndex = _.random(towns.length - 1);
+  const randomIndex = random(towns.length - 1);
   return towns[randomIndex];
 };
 
@@ -37,7 +38,7 @@ const updHistory = (towns, newTown) => {
   if (towns.length < 10) {
     return [...towns, `[${time}]: ${newTown}`];
   }
-  const editedTowns = _.drop(towns);
+  const editedTowns = drop(towns);
   return [...editedTowns, `[${time}]: ${newTown}`];
 };
 

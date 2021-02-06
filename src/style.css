@@ -2,6 +2,10 @@ body {
   min-width: 320px;
 }
 
+main {
+   background-image: url('./pics/backgroundpic.png');
+}
+
 p {
   line-height: 0.7em;
   margin-left: 20px;

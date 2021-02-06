@@ -45,7 +45,6 @@ export default () => {
   };
 
   const elements = {
-    bg: document.querySelector('#bg'),
     header: document.querySelector('#header'),
     subtitle1: document.querySelector('#subtitle__1'),
     subtitle2: document.querySelector('#subtitle__2'),
