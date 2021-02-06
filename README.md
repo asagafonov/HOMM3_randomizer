@@ -1,9 +1,7 @@
 # HOMM3 Random Town Generator
 
-### Codeclimate & linter status:
-![Linter](https://github.com/asagafonov/HOMM3_randomizer/workflows/Linter/badge.svg)
-
 ### Link to website
+https://homm-3-randomizer.vercel.app
 
 ### Description
-Description
+Generate towns to play Heroes of Might and Magic 3: one for mirror templates, two for other templates. Bans available.
